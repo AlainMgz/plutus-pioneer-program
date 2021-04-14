@@ -24,22 +24,22 @@
 
 - Week #1
 
-  - Build the [English Auction](code/week01) contract with `cabal build` (you may need to run `cabal update` first).
+  - Build the [English Auction](code/week01) contract with `cabal build` (you may need to run `cabal update` first). (DONE)
   - Clone the [The Plutus repository](https://github.com/input-output-hk/plutus), check out the correct commit
-    as specified in [cabal.project](code/week01/cabal.project).
-  - Set-up IOHK binary caches [How to set up the IOHK binary caches](https://github.com/input-output-hk/plutus#iohk-binary-cache). "If you do not do this, you will end up building GHC, which takes several hours. If you find yourself building GHC, STOP and fix the cache."
-  - Enter a `nix-shell`.
-  - Go to the `plutus-playground-client` folder.
-  - Start the Playground server with `plutus-playground-server`.
-  - Start the Playground client (in another `nix-shell`) with `npm run start`.
-  - Copy-paste the auction contract into the Playground editor - don't forget to remove the module header!
-  - Compile.
-  - Simulate various auction scenarios.
+    as specified in [cabal.project](code/week01/cabal.project). (DONE)
+  - Set-up IOHK binary caches [How to set up the IOHK binary caches](https://github.com/input-output-hk/plutus#iohk-binary-cache). "If you do not do this, you will end up building GHC, which takes several hours. If you find yourself building GHC, STOP and fix the cache." (DONE)
+  - Enter a `nix-shell`. (DONE)
+  - Go to the `plutus-playground-client` folder. (DONE)
+  - Start the Playground server with `plutus-playground-server`. (DONE)
+  - Start the Playground client (in another `nix-shell`) with `npm run start`. (DONE)
+  - Copy-paste the auction contract into the Playground editor - don't forget to remove the module header! (DONE)
+  - Compile. (DONE)
+  - Simulate various auction scenarios. (DONE)
 
 - Week #2
 
-  - Fix and complete the code in the [Homework1](code/week02/src/Week02/Homework1.hs) module.
-  - Fix and complete the code in the [Homework2](code/week02/src/Week02/Homework2.hs) module.
+  - Fix and complete the code in the [Homework1](code/week02/src/Week02/Homework1.hs) module. (DONE)
+  - Fix and complete the code in the [Homework2](code/week02/src/Week02/Homework2.hs) module. (DONE)
 
 ## Some Plutus Modules
 
