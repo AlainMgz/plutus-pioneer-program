@@ -13,7 +13,7 @@
 module Week03.Homework1 where
 
 import           Control.Monad        hiding (fmap)
-import           Data.Aeson           (ToJSON, FromJSON)
+import           Data.Aeson           (ToJSON, FromJSON, Value (Bool))
 import           Data.Map             as Map
 import           Data.Text            (Text)
 import           Data.Void            (Void)
@@ -43,7 +43,15 @@ PlutusTx.unstableMakeIsData ''VestingDatum
 -- This should validate if either beneficiary1 has signed the transaction and the current slot is before or at the deadline
 -- or if beneficiary2 has signed the transaction and the deadline has passed.
 mkValidator :: VestingDatum -> () -> ScriptContext -> Bool
-mkValidator _ _ _ = False -- FIX ME!
+mkValidator dat () ctx =
+    traceIfFalse "Beneficiary missing" checkSig
+  where
+    info :: TxInfo
+    info = scriptContextTxInfo ctx
+    
+    checkSig :: Bool
+    checkSig =  beneficiary1 dat `elem` txInfoSignatories info || beneficiary2 dat `elem` txInfoSignatories info
+
 
 data Vesting
 instance Scripts.ScriptType Vesting where
