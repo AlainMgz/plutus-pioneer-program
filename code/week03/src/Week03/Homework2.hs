@@ -14,7 +14,7 @@
 module Week03.Homework2 where
 
 import           Control.Monad        hiding (fmap)
-import           Data.Aeson           (ToJSON, FromJSON)
+import           Data.Aeson           (ToJSON, FromJSON, Value (Bool))
 import           Data.Map             as Map
 import           Data.Text            (Text)
 import           Data.Void            (Void)
@@ -34,21 +34,35 @@ import           Text.Printf          (printf)
 
 {-# INLINABLE mkValidator #-}
 mkValidator :: PubKeyHash -> Slot -> () -> ScriptContext -> Bool
-mkValidator _ _ _ _ = False -- FIX ME!
+mkValidator pkh slt () ctx =
+    traceIfFalse "missing beneficiary"  checkSig     &&
+    traceIfFalse "deadline not reached" checkDeadline
+  where
+      info :: TxInfo
+      info = scriptContextTxInfo ctx
 
+      checkSig :: Bool
+      checkSig = pkh `elem` txInfoSignatories info
+
+      checkDeadline :: Bool
+      checkDeadline = from slt `contains` txInfoValidRange info
 data Vesting
 instance Scripts.ScriptType Vesting where
     type instance DatumType Vesting = Slot
     type instance RedeemerType Vesting = ()
 
 inst :: PubKeyHash -> Scripts.ScriptInstance Vesting
-inst = undefined -- IMPLEMENT ME!
+inst p = Scripts.validator @Vesting
+    ($$(PlutusTx.compile [|| mkValidator ||]) `PlutusTx.applyCode` PlutusTx.liftCode p)
+    $$(PlutusTx.compile [|| wrap ||])
+  where
+    wrap = Scripts.wrapValidator @Slot @()
 
 validator :: PubKeyHash -> Validator
-validator = undefined -- IMPLEMENT ME!
+validator = Scripts.validatorScript . inst
 
 scrAddress :: PubKeyHash -> Ledger.Address
-scrAddress = undefined -- IMPLEMENT ME!
+scrAddress = scriptAddress . validator
 
 data GiveParams = GiveParams
     { gpBeneficiary :: !PubKeyHash
