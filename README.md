@@ -51,7 +51,7 @@
 - Week #3
 
   - Fix and complete the code in the [Homework1](code/week03/src/Week03/Homework1.hs) module. (DONE)
-  - Fix and complete the code in the [Homework2](code/week03/src/Week03/Homework2.hs) module.
+  - Fix and complete the code in the [Homework2](code/week03/src/Week03/Homework2.hs) module. (DONE)
 
 
 ## Solutions
