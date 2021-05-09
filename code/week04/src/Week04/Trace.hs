@@ -30,3 +30,4 @@ myTrace = do
     callEndpoint @"grab" h2 ()
     s <- waitNSlots 1
     Extras.logInfo $ "reached slot " ++ show s
+
