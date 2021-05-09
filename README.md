@@ -69,8 +69,8 @@
 
 - Week #4
 
-  - Write an appropriate `EmulatorTrace` that uses the `payContract` contract in the [Homework](code/week04/src/Week04/Homework.hs) module.
-  - Catch errors in the `payContract` contract in the same module.
+  - Write an appropriate `EmulatorTrace` that uses the `payContract` contract in the [Homework](code/week04/src/Week04/Homework.hs) module. (DONE)
+  - Catch errors in the `payContract` contract in the same module. (DONE)
 
 - Week #5
 
