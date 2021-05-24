@@ -86,12 +86,12 @@
 
 - Week #5
 
-  - Add a deadline to the minting policy in the [Homework1](code/week05/src/Week05/Homework1.hs) module.
-  - Fix the token name to the empty `ByteString` in the NFT contract in the [Homework2](code/week05/src/Week05/Homework2.hs) module.
+  - Add a deadline to the minting policy in the [Homework1](code/week05/src/Week05/Homework1.hs) module. (DONE)
+  - Fix the token name to the empty `ByteString` in the NFT contract in the [Homework2](code/week05/src/Week05/Homework2.hs) module. (DONE)
 
 - Week #6
 
-  - Get the Oracle demo running and extend it in some way.
+  - Get the Oracle demo running and extend it in some way. (DONE)
 
 - Week #7
 
